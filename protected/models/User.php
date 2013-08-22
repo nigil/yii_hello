@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This is the model class for table "tbl_user".
+ * This is the model class for table "account".
  *
  * The followings are the available columns in table 'tbl_user':
  * @property integer $id
@@ -16,13 +16,13 @@ class User extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'tbl_user';
+		return 'accounts';
 	}
 
 	/**
 	 * @return array validation rules for model attributes.
 	 */
-	public function rules()
+	/*public function rules()
 	{
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
@@ -33,18 +33,7 @@ class User extends CActiveRecord
 			// @todo Please remove those attributes that should not be searched.
 			array('id, email, password, company', 'safe', 'on'=>'search'),
 		);
-	}
-
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-		);
-	}
+	}*/
 
 	/**
 	 * @return array customized attribute labels (name=>label)
@@ -85,6 +74,30 @@ class User extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	/**
+	 * Поиск пользователя по полному совпадению логина
+	 */
+	public function searchByLogin()
+	{
+		$criteria = new CDbCriteria;
+		$criteria -> compare('email', $this -> email);
+
+		return User::model() -> findAll($criteria);
+	}
+
+	/**
+	 * Поиск компаний
+	 */
+	public function searchCompanies()
+	{
+		$criteria = new CDbCriteria;
+
+		$criteria -> compare('company', $this -> company, true);
+		$criteria -> select = array('company');
+
+		return User::model() -> findAll($criteria);
 	}
 
 	/**

@@ -39,7 +39,6 @@ return array(
 			'showScriptName' => false,
 			'rules'=>array(
 				'/' => 'site/index',
-				// '/page/<view:\w>' => 'site/page',
 				'/contact' => 'site/contact',
 				'/main' => 'site/main',
 				'/register' => 'site/register',
@@ -52,7 +51,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'class' => 'system.db.User',
+			'class' => 'system.db.CDbConnection',
 			'connectionString' => 'mysql:host=localhost;dbname=yii_hello',
 			'emulatePrepare' => true,
 			'username' => 'yii_hello',

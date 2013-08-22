@@ -73,6 +73,24 @@ class SiteController extends Controller
 	}
 
 	/**
+	 * Регистрация пользователя
+	 */
+	public function actionRegister()
+	{
+		$model = new RegisterForm;
+
+		if (isset($_POST['RegisterForm']))
+		{
+			if ($model -> register())
+			{
+				$this -> redirect('/login/');
+			}
+		}
+
+		$this->render('register', array('model' => $model));
+	}
+
+	/**
 	 * Displays the login page
 	 */
 	public function actionLogin()
