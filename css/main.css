@@ -227,3 +227,10 @@ div.search-form
 {
 	background: #80CFFF;
 }
+
+table.user_table {
+	width: 50%;
+}
+	table.user_table td {
+		padding: 10px;
+	}

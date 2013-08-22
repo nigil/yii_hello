@@ -51,12 +51,16 @@ class User extends CActiveRecord
 	/**
 	 * Поиск компаний
 	 */
-	public function searchCompanies()
+	public function searchCompanies($term, $limit = false)
 	{
 		$criteria = new CDbCriteria;
 
-		$criteria -> compare('company', $this -> company, true);
+		$criteria -> compare('company', $term, true);
 		$criteria -> select = array('company');
+		if ($limit = intval($limit))
+		{
+			$criteria -> limit = $limit;
+		}
 
 		return User::model() -> findAll($criteria);
 	}

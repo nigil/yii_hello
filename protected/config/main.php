@@ -39,10 +39,12 @@ return array(
 			'showScriptName' => false,
 			'rules'=>array(
 				'/' => 'site/index',
+				'/main' => 'site/main',
 				'/contact' => 'site/contact',
 				'/main' => 'site/main',
 				'/register' => 'site/register',
-				'/login' => 'site/login'
+				'/login' => 'site/login',
+				'/get_companies' => 'site/getCompanies'
 			),
 		),
 		/*'db'=>array(

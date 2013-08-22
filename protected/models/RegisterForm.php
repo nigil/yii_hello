@@ -18,9 +18,10 @@ class RegisterForm extends CFormModel
 	public function rules()
 	{
 		return array(
+			array('email', 'email'),
 			array('email', 'unique', 'className' => 'User'),
 			array('email, password, repeat_password, company', 'required'),
-			array('password', 'compare', 'compareAttribute' => 'repeat_password')
+			array('repeat_password', 'compare', 'compareAttribute' => 'password')
 		);
 	}
 
