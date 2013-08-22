@@ -14,27 +14,27 @@ $this->breadcrumbs=array(
     <? echo $form->errorSummary($model); ?>
  
     <div class="row">
-        <?= $form->labelEx($model,'Email'); ?>
+        <?= $form->labelEx($model,'email'); ?>
         <?= $form->textField($model,'email') ?>
     </div>
  
     <div class="row">
-        <?= $form->labelEx($model,'Пароль'); ?>
+        <?= $form->labelEx($model,'password'); ?>
         <?= $form->passwordField($model,'password') ?>
     </div>
 
     <div class="row">
-        <?= $form->labelEx($model,'Повторите пароль'); ?>
+        <?= $form->labelEx($model,'repeat_password'); ?>
         <?= $form->passwordField($model,'repeat_password') ?>
     </div>
  
     <div class="row">
-    	<?= $form->labelEx($model,'Название компании'); ?>
+    	<?= $form->labelEx($model,'company'); ?>
         <?= $form->textField($model,'company'); ?>
     </div>
  
     <div class="row submit">
-        <?= CHtml::submitButton('Регистрация'); ?>
+        <?= CHtml::submitButton('Register'); ?>
     </div>
  
 <?php $this->endWidget(); ?>

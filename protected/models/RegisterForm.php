@@ -31,7 +31,7 @@ class RegisterForm extends CFormModel
     	$this -> attributes = $_POST['RegisterForm'];
 
     	$account -> email = $this -> email;
-    	$account -> password = md5($this -> password);
+    	$account -> password = crypt($this -> password);
     	$account -> company = $this -> company;
 
     	if ($this -> validate())

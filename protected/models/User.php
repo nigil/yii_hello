@@ -49,45 +49,6 @@ class User extends CActiveRecord
 	}
 
 	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
-
-		$criteria=new CDbCriteria;
-
-		$criteria->compare('id',$this->id);
-		$criteria->compare('email',$this->email,true);
-		$criteria->compare('password',$this->password,true);
-		$criteria->compare('company',$this->company,true);
-
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
-
-	/**
-	 * Поиск пользователя по полному совпадению логина
-	 */
-	public function searchByLogin()
-	{
-		$criteria = new CDbCriteria;
-		$criteria -> compare('email', $this -> email);
-
-		return User::model() -> findAll($criteria);
-	}
-
-	/**
 	 * Поиск компаний
 	 */
 	public function searchCompanies()
@@ -96,6 +57,18 @@ class User extends CActiveRecord
 
 		$criteria -> compare('company', $this -> company, true);
 		$criteria -> select = array('company');
+
+		return User::model() -> findAll($criteria);
+	}
+
+	/**
+	 * Вернуть всех пользователей
+	 */
+	public function getUsers()
+	{
+		$criteria = new CDbCriteria;
+
+		$criteria -> select = array('email', 'company');
 
 		return User::model() -> findAll($criteria);
 	}
