@@ -1,12 +1,22 @@
 <?
 
-$this -> pageTitle = Yii::app() -> name;
+$this -> pageTitle = Yii::app() -> name.' - Main';
+
+?><h1>Main</h1><?
 
 $_info = $model -> getUsers();
 
 if ($_info)
 {
-	?><table class='user_table'><?
+	?><table class='user_table'>
+		<thead>
+			<tr>
+				<th>Login</th>
+				<th>Company</th>
+			</tr>
+		</thaed>
+		<tbody>
+	<?
 	foreach ($_info as $user)
 	{
 		?><tr>
@@ -14,7 +24,9 @@ if ($_info)
 			<td><?= $user -> company ?></td>
 		</tr><?
 	}
-	?></table><?
+	?>
+		</tbody>
+	</table><?
 }
 else
 {

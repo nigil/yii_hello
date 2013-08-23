@@ -230,7 +230,9 @@ div.search-form
 
 table.user_table {
 	width: 50%;
+	margin-top: 40px;
 }
 	table.user_table td {
 		padding: 10px;
+		vertical-align: top;
 	}

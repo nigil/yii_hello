@@ -1,9 +1,7 @@
 <?php
 
 $this->pageTitle=Yii::app()->name . ' - Registration';
-$this->breadcrumbs=array(
-	'Registration',
-);
+$this->breadcrumbs=array('Registration');
 ?>
 
 <h1>Registration</h1>
@@ -18,6 +16,8 @@ $this->breadcrumbs=array(
 		)
 	);
 ?>
+
+	<p class="note">Fields with <span class="required">*</span> are required.</p>
  
     <div class="row">
         <?= $form->labelEx($model,'email'); ?>
@@ -75,7 +75,7 @@ $(document).ready(function(){
 	            'json'
 	        );
 		},
-		minLenght: 2
+		minLength: 2
 	});
 });
 </script>
