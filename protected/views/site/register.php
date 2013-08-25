@@ -11,7 +11,8 @@ $this->breadcrumbs=array('Registration');
 		array(
 			'enableClientValidation' => true,
 			'clientOptions' => array(
-				'validateOnSubmit' => true
+				'validateOnSubmit' => true,
+				'validateOnChange' => false
 			)
 		)
 	);
@@ -67,9 +68,9 @@ $(document).ready(function(){
 				function(data) {
 					if (data.companies)
 					{
-						response($.map(data.companies, function(item) {
+						response($.unique($.map(data.companies, function(item) {
 						  	return item;
-						}));
+						})));
 	            	}
 	            },
 	            'json'
