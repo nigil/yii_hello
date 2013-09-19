@@ -116,6 +116,8 @@ class SiteController extends Controller
 		$this->redirect('/login/');
 	}
 
+
+    
 	/**
 	 * Поиск компаний
 	 */
