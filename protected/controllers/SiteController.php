@@ -107,7 +107,6 @@ class SiteController extends Controller
 		$this -> render('login', array('model' => $model));
 	}
 
-    
 	/**
 	 * Разлогинить пользователя
 	 */
